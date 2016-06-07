@@ -1,0 +1,51 @@
+<div>
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#signupform" aria-controls="signupform" role="tab" data-toggle="tab">Sign Up</a></li>
+    <li role="presentation"><a href="#loginform" aria-controls="loginform" role="tab" data-toggle="tab">Log In</a></li>
+  </ul>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="signupform">
+      <%= form_for(:users, :url => registration_path(:user)) do |f| %>
+        <div class='field'>
+          <%= f.label :email %><br/>
+          <%= f.text_field :email, autofocus: true %>
+        </div>
+        <div class="field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign up" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="loginform">
+      <%= form_for(:users, :url => session_path(:user)) do |f| %>
+        <div class='field'>
+          <%= f.label :email %><br/>
+          <%= f.text_field :email, autofocus: true %>
+        </div>
+        <div class='field'>
+          <%= f.label :password %><br/>
+          <%= f.password_field :password %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Log in" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- <div class='user-form-container'>
+</div>
+ -->
