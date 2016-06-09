@@ -1,0 +1,24 @@
+{
+  "name": "shenmo",
+  "homepage": "https://github.com/mAsCuLiNe/shenmo",
+  "authors": [
+    "Mark <itisnanful@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-ui-router": "^0.3.1",
+    "bootstrap": "^3.3.6",
+    "AngularDevise": "angular-devise#^1.3.0"
+  }
+}

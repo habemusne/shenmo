@@ -19,9 +19,9 @@ gem "font-awesome-rails"
 gem 'database_cleaner'
 gem 'rails_admin'
 gem 'sweet-alert'
-gem 'bower-rails'
 gem 'angular-rails-templates'
 gem 'sprockets', '2.12.3'
+gem 'angular_rails_csrf'
 
 group :development, :test do
   gem 'byebug'
