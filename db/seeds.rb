@@ -1,5 +1,7 @@
 DatabaseCleaner.clean_with :truncation
 
+Monologue::User.create(name: "blog_user", email:"blog_user@gmail.com", password: "laksjdhf", password_confirmation: "laksjdhf")
+
 users_data = [
   ['PFN1', 'PLN1', 'a@gmail.com', 'laksjdhf'],
   ['PFN2', 'PLN2', 'b@gmail.com', 'laksjdhf'],
@@ -119,6 +121,49 @@ children_objects.each do |o|
   o.save!
 end
 
+course_data = [
+  ['珠心算一级', Date.new(2015, 1, 1), Date.new(2015, 3, 1), 1, 1],
+  ['珠心算一级', Date.new(2015, 3, 1), Date.new(2015, 5, 1), 1, 1],
+  ['珠心算二级', Date.new(2015, 3, 1), Date.new(2015, 5, 1), 1, 1],
+  ['珠心算三级', Date.new(2015, 5, 1), Date.new(2015, 8, 1), 1, 1],
+  ['珠心算四级', Date.new(2015, 8, 1), Date.new(2015, 12, 1), 1, 1],
+]
+course_objects = []
+course_data.each do |name, start_date, end_date, semester_id, school_id|
+  course_objects.push(
+    Course.new({
+      name: name, 
+      start_date: start_date,
+      end_date: end_date,
+      semester_id: semester_id,
+      school_id: school_id,
+    })
+  )
+end
 
+course_objects.each do |o|
+  o.save!
+end
 
+enrollments_data = [
+  [1, 1],
+  [1, 3],
+  [1, 4],
+  [1, 5],
+  [2, 2],
+  [2, 3],
+]
 
+enrollments_objects = []
+enrollments_data.each do |child_id, course_id|
+  enrollments_objects.push(
+    Enrollment.new({
+      child_id: child_id,
+      course_id: course_id,
+    })
+  )
+end
+
+enrollments_objects.each do |o|
+  o.save!
+end

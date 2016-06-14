@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607183106) do
+ActiveRecord::Schema.define(version: 20160614170902) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.integer  "sign_in_count",          limit: 4,   default: 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.datetime "remember_created_at"
+    t.string   "last_sign_in_ip",        limit: 255
+    t.integer  "failed_attempts",        limit: 4,   default: 0
+    t.string   "unlock_token",           limit: 255
+    t.datetime "locked_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title", limit: 255
+    t.text   "body",  limit: 65535
+  end
 
   create_table "children", force: :cascade do |t|
     t.string  "first_name",  limit: 255, null: false
@@ -35,18 +58,66 @@ ActiveRecord::Schema.define(version: 20160607183106) do
   add_index "courses", ["school_id"], name: "index_courses_on_school_id", using: :btree
   add_index "courses", ["semester_id"], name: "index_courses_on_semester_id", using: :btree
 
-  create_table "grades", force: :cascade do |t|
-    t.string "name", limit: 255, null: false
-  end
-
-  create_table "gradings", force: :cascade do |t|
+  create_table "enrollments", force: :cascade do |t|
     t.boolean "pass"
     t.integer "child_id",  limit: 4
     t.integer "course_id", limit: 4
   end
 
-  add_index "gradings", ["child_id"], name: "fk_rails_5d35bca3cd", using: :btree
-  add_index "gradings", ["course_id"], name: "fk_rails_8a6dcfe307", using: :btree
+  add_index "enrollments", ["child_id"], name: "fk_rails_94d50345a5", using: :btree
+  add_index "enrollments", ["course_id"], name: "fk_rails_2e119501f4", using: :btree
+
+  create_table "grades", force: :cascade do |t|
+    t.string "name", limit: 255, null: false
+  end
+
+  create_table "monologue_posts", force: :cascade do |t|
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id",      limit: 4
+    t.string   "title",        limit: 255
+    t.text     "content",      limit: 65535
+    t.string   "url",          limit: 255
+    t.datetime "published_at"
+  end
+
+  add_index "monologue_posts", ["url"], name: "index_monologue_posts_on_url", unique: true, using: :btree
+
+  create_table "monologue_taggings", force: :cascade do |t|
+    t.integer "post_id", limit: 4
+    t.integer "tag_id",  limit: 4
+  end
+
+  add_index "monologue_taggings", ["post_id"], name: "index_monologue_taggings_on_post_id", using: :btree
+  add_index "monologue_taggings", ["tag_id"], name: "index_monologue_taggings_on_tag_id", using: :btree
+
+  create_table "monologue_tags", force: :cascade do |t|
+    t.string "name", limit: 255
+  end
+
+  add_index "monologue_tags", ["name"], name: "index_monologue_tags_on_name", using: :btree
+
+  create_table "monologue_users", force: :cascade do |t|
+    t.string   "name",            limit: 255
+    t.string   "email",           limit: 255
+    t.string   "password_digest", limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rich_rich_files", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "rich_file_file_name",    limit: 255
+    t.string   "rich_file_content_type", limit: 255
+    t.integer  "rich_file_file_size",    limit: 4
+    t.datetime "rich_file_updated_at"
+    t.string   "owner_type",             limit: 255
+    t.integer  "owner_id",               limit: 4
+    t.text     "uri_cache",              limit: 65535
+    t.string   "simplified_type",        limit: 255,   default: "file"
+  end
 
   create_table "schedules", force: :cascade do |t|
     t.time    "start_time"
@@ -100,8 +171,8 @@ ActiveRecord::Schema.define(version: 20160607183106) do
   add_foreign_key "children", "users"
   add_foreign_key "courses", "schools"
   add_foreign_key "courses", "semesters"
-  add_foreign_key "gradings", "children"
-  add_foreign_key "gradings", "courses"
+  add_foreign_key "enrollments", "children"
+  add_foreign_key "enrollments", "courses"
   add_foreign_key "schedules", "courses"
   add_foreign_key "schedules", "week_days"
 end

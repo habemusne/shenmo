@@ -1,0 +1,19 @@
+
+<div class="list-group">
+  <% @children.each do |child| %>
+    <div class="list-group-item">
+      <div class="row-action-primary">
+        <i class="material-icons">folder</i>
+      </div>
+      <div class="row-content">
+        <div class="least-content">kid</div>
+        <h4 class="list-group-item-heading"><%= child.first_name %> <%= child.last_name %></h4>
+
+        <p class="list-group-item-text">This is a good kid</p>
+
+        <a href="javascript:void(0)" class="btn btn-raised btn-default">Edit<div class="ripple-container"></div></a>
+      </div>
+    </div>
+    <div class="list-group-separator"></div>
+  <% end %>
+</div>

@@ -1,26 +1,33 @@
-<h2>Log in</h2>
+<div class='container'>
+  <div class='panel panel-default'>
+    <div class="panel-heading">Log In <p>New User? <a href='<%= new_user_registration_path %>'>Sign Up Here</a></p></div>
+    <div class="panel-body">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal' }) do |f| %>
+        <fieldset>
+          <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+          <div class='form-group is-empty'>
+            <label for='user_email' class='col-md-2 control-label'>Email</label>
+            <div class='col-md-10'>
+              <input type='email' class='form-control' id='user_email' placeholder='Email' name='user[email]' autofocus='autofocus' />
+            </div>
+          </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+          <div class='form-group is-empty'>
+            <label for='user_password' class='col-md-2 control-label'>Password</label>
+            <div class='col-md-10'>
+              <input type='password' class='form-control' id='user_password' placeholder='Password' name='user[password]' autocomplete='off' />
+            </div>
+          </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+          <button type='submit' class='btn btn-primary'>Submit
+            <div class='ripple-container'></div>
+          </button>
+        </fieldset>
+      <% end %>
+
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+</div>
+

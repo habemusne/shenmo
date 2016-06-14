@@ -51,11 +51,17 @@ class ConstructDb < ActiveRecord::Migration
       t.timestamp null: false
     end
 
-    create_table :gradings do |t|
+    create_table :enrollments do |t|
       t.boolean :pass
       t.references :child, foreign_key: true
       t.references :course, foreign_key: true
     end
     
+    create_table :articles do |t|
+      t.string :title
+      t.text :body
+      t.timestamp null: false
+    end
+
   end
 end

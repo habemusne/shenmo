@@ -14,14 +14,19 @@ gem 'devise', '~> 3.5.6'
 gem "paperclip", '~> 4.3.5'
 gem 'thin', '~> 1.6'
 
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem "font-awesome-rails"
 gem 'database_cleaner'
 gem 'rails_admin'
 gem 'sweet-alert'
-gem 'bower-rails'
 gem 'angular-rails-templates'
 gem 'sprockets', '2.12.3'
+gem 'materialize-sass'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'material_icons'
+gem 'aws-sdk'
+gem 'fancybox2-rails', '~> 0.2.8'
+gem 'monologue', github: 'jipiboily/monologue'
+# gem 'rich', :git => 'https://github.com/kreativgebiet/rich.git'
 
 group :development, :test do
   gem 'byebug'

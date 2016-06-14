@@ -12,9 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require angular/angular
-//= require angular-rails-templates
-//= require angular-route/angular-route
+//= require fancybox
 //= require bootstrap-sprockets
-//= require app
+//= require bootstrap-material-design
 //= require_tree .
+
+$('.img-enlargable').fancybox({
+  openEffect  : 'elastic',
+  helpers: {
+    title: {
+      type: 'float'
+    }
+  }
+});
+

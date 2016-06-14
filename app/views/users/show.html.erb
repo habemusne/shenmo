@@ -1,0 +1,23 @@
+<div>
+  <div>Welcome, <%= concat_name(current_user) %></div>
+  <table class="datatable display responsive no-wrap" width="100%">
+    <thead>
+      <tr>
+        <th>Student Name</th>
+        <th>Course Name</th>
+        <th>School</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.children.each do |child| %>
+        <% child.courses.each do |course| %>
+          <tr>
+            <td><%= concat_name(child) %></td>
+            <td><%= course.name %></td>
+            <td><%= course.school.name %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

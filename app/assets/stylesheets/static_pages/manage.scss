@@ -1,0 +1,13 @@
+div.form-collapsible-container{
+  padding-bottom: 10px;
+  form{
+    div{
+      float: none !important;
+      input{
+        border-bottom-color: #26a69a;
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
+      }
+    }
+  }
+}

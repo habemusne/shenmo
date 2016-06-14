@@ -1,0 +1,35 @@
+
+.img-medium{
+  position:absolute;
+  top:0;
+  left:0; 
+  width:100%;
+  padding: 2px;
+}
+
+.abacus-images-container{
+  width:300px;
+  display:block; 
+  position:relative;
+  overflow:hidden;
+}  
+
+
+@media(max-width: 401px){
+  .abacus-images-container{
+    height: 100px;
+  }
+}
+
+@media(max-width: 600px) and (min-width: 401px){
+  .abacus-images-container{
+    height: 150px;
+  }
+}
+
+@media(min-width: 601px){
+  .abacus-images-container{
+    height: 200px;
+  }
+}
+

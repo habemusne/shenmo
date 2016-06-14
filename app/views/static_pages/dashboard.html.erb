@@ -1,0 +1,27 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col s4'>
+      Welcome, <%= concat_name(current_user) %>
+    </div>
+    <div class='col s4'>
+      <div class="card center-align">
+        <div class="card-image waves-effect waves-block waves-light">
+          <i class="material-icons large">face</i>
+        </div>
+        <div class="card-content">
+          <a class="activator grey-text text-darken-3" href='<%= manage_path %>'>Me & My Children</a>
+        </div>
+      </div>
+    </div>
+    <div class='col s4'>
+      <div class="card center-align">
+        <div class="card-image waves-effect waves-block waves-light">
+          <i class="material-icons large">library_books</i>
+        </div>
+        <div class="card-content">
+          <span class="activator grey-text text-darken-4">Courses</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

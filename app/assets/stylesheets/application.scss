@@ -12,15 +12,21 @@
  *
  *= require_tree .
  *= require_self
+ *= require fancybox
  *= require font-awesome
+ *= require material_icons
  */
- 
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "font-awesome";
+@import "bootstrap-material-design/dist/css/bootstrap-material-design";
 
 html div{
   font-family: 'Palatino Linotype', serif;
+}
+
+.main-container{
+  min-height: 650px;
 }
 
 .user-form-container{
@@ -30,3 +36,14 @@ html div{
   /*width: 200px;*/
   /*display: inline-block;*/
 }
+
+.big-section{
+  min-height: 400px;
+  padding:10%;
+}
+
+.footer-container{
+  min-height: 100px;
+  background-color: grey;
+}
+
