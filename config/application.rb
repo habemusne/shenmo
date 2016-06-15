@@ -29,5 +29,8 @@ module Shenmo
       region: 'us-west-2',
       credentials: Aws::Credentials.new('AKIAJ3I32IJY6EKB6FLA', '8fIec7pfA2NMUy9jSYr+wATl9T8c68rsOBCBTvxf')
     })
+    Dir.glob("#{Rails.root}/app/assets/images/**/").each do |path|
+        config.assets.paths << path
+    end
   end
 end
