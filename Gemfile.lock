@@ -1,18 +1,22 @@
 GIT
-  remote: git://github.com/jipiboily/monologue.git
-  revision: eb86247e948a6f4bba63c03d4151fc461b0c412f
+  remote: git://github.com/galetahub/ckeditor.git
+  revision: 548c065e209ed3c6e504b6cd277b6ffc635682da
   specs:
-    monologue (0.5.0)
-      bcrypt (~> 3.1.7)
-      ckeditor (~> 4.1.1)
-      coffee-rails (>= 4.0.0)
+    ckeditor (4.1.6)
+      cocaine
+      orm_adapter (~> 0.5.0)
+
+GIT
+  remote: https://github.com/kreativgebiet/rich.git
+  revision: 2c8f85438e7391f9a11d4972272723bbe85844cd
+  specs:
+    rich (1.4.8)
       jquery-rails
-      rails (>= 4.0.4)
-      rails-i18n
-      responders (~> 2.1.0)
-      sass-rails (~> 5.0.0)
-      select2-rails (~> 3.2)
-      truncate_html
+      kaminari
+      mime-types
+      rack-raw-upload
+      rails (>= 3.2.0)
+      sass-rails
 
 GEM
   remote: https://rubygems.org/
@@ -75,9 +79,6 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.5)
-    ckeditor (4.1.6)
-      cocaine
-      orm_adapter (~> 0.5.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -160,6 +161,8 @@ GEM
     rack-pjax (0.8.0)
       nokogiri (~> 1.5)
       rack (~> 1.1)
+    rack-raw-upload (1.1.1)
+      multi_json
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.5.1)
@@ -181,9 +184,6 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    rails-i18n (4.0.8)
-      i18n (~> 0.7)
-      railties (~> 4.0)
     rails_admin (0.8.1)
       builder (~> 3.1)
       coffee-rails (~> 4.0)
@@ -220,8 +220,6 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    select2-rails (3.5.10)
-      thor (~> 0.14)
     spring (1.7.1)
     sprockets (2.12.3)
       hike (~> 1.2)
@@ -240,7 +238,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
-    truncate_html (0.9.3)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (3.0.0)
@@ -262,6 +259,7 @@ DEPENDENCIES
   aws-sdk
   bootstrap-sass (~> 3.3.6)
   byebug
+  ckeditor!
   coffee-rails (~> 4.1.0)
   database_cleaner
   devise (~> 3.5.6)
@@ -271,11 +269,11 @@ DEPENDENCIES
   jquery-rails
   material_icons
   materialize-sass
-  monologue!
   mysql2 (>= 0.3.13, < 0.5)
   paperclip (~> 4.3.5)
   rails (= 4.2.5.1)
   rails_admin
+  rich!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
@@ -286,4 +284,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.11.2
+   1.12.5

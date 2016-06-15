@@ -25,8 +25,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'material_icons'
 gem 'aws-sdk'
 gem 'fancybox2-rails', '~> 0.2.8'
-gem 'monologue', github: 'jipiboily/monologue'
-# gem 'rich', :git => 'https://github.com/kreativgebiet/rich.git'
+gem 'rich', :git => 'https://github.com/kreativgebiet/rich.git'
+gem 'ckeditor', github: 'galetahub/ckeditor'
 
 group :development, :test do
   gem 'byebug'

@@ -1,2 +1,2 @@
-class RecentNews < ActiveRecord::Base
+class Article < ActiveRecord::Base
 end

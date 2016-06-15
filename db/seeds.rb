@@ -1,7 +1,5 @@
 DatabaseCleaner.clean_with :truncation
 
-Monologue::User.create(name: "blog_user", email:"blog_user@gmail.com", password: "laksjdhf", password_confirmation: "laksjdhf")
-
 users_data = [
   ['PFN1', 'PLN1', 'a@gmail.com', 'laksjdhf'],
   ['PFN2', 'PLN2', 'b@gmail.com', 'laksjdhf'],

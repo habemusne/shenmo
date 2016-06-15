@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  mount Rich::Engine => '/rich', :as => 'rich'
+  mount Ckeditor::Engine => '/ckeditor'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, :controllers => { registrations: 'registrations' }
-  mount Monologue::Engine, at: 'articles/'
 
   resources :users do
     resources :children

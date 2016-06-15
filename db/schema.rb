@@ -11,25 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614170902) do
-
-  create_table "admins", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
-    t.datetime "reset_password_sent_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.datetime "remember_created_at"
-    t.string   "last_sign_in_ip",        limit: 255
-    t.integer  "failed_attempts",        limit: 4,   default: 0
-    t.string   "unlock_token",           limit: 255
-    t.datetime "locked_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20160615224608) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title", limit: 255
@@ -46,6 +28,22 @@ ActiveRecord::Schema.define(version: 20160614170902) do
 
   add_index "children", ["grade_id"], name: "index_children_on_grade_id", using: :btree
   add_index "children", ["user_id"], name: "fk_rails_a51d7cfb22", using: :btree
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",    limit: 255, null: false
+    t.string   "data_content_type", limit: 255
+    t.integer  "data_file_size",    limit: 4
+    t.integer  "assetable_id",      limit: 4
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width",             limit: 4
+    t.integer  "height",            limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "courses", force: :cascade do |t|
     t.string  "name",        limit: 255, null: false
@@ -69,41 +67,6 @@ ActiveRecord::Schema.define(version: 20160614170902) do
 
   create_table "grades", force: :cascade do |t|
     t.string "name", limit: 255, null: false
-  end
-
-  create_table "monologue_posts", force: :cascade do |t|
-    t.boolean  "published"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id",      limit: 4
-    t.string   "title",        limit: 255
-    t.text     "content",      limit: 65535
-    t.string   "url",          limit: 255
-    t.datetime "published_at"
-  end
-
-  add_index "monologue_posts", ["url"], name: "index_monologue_posts_on_url", unique: true, using: :btree
-
-  create_table "monologue_taggings", force: :cascade do |t|
-    t.integer "post_id", limit: 4
-    t.integer "tag_id",  limit: 4
-  end
-
-  add_index "monologue_taggings", ["post_id"], name: "index_monologue_taggings_on_post_id", using: :btree
-  add_index "monologue_taggings", ["tag_id"], name: "index_monologue_taggings_on_tag_id", using: :btree
-
-  create_table "monologue_tags", force: :cascade do |t|
-    t.string "name", limit: 255
-  end
-
-  add_index "monologue_tags", ["name"], name: "index_monologue_tags_on_name", using: :btree
-
-  create_table "monologue_users", force: :cascade do |t|
-    t.string   "name",            limit: 255
-    t.string   "email",           limit: 255
-    t.string   "password_digest", limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "rich_rich_files", force: :cascade do |t|
