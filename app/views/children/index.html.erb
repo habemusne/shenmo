@@ -1,19 +1,43 @@
-
-<div class="list-group">
-  <% @children.each do |child| %>
-    <div class="list-group-item">
-      <div class="row-action-primary">
-        <i class="material-icons">folder</i>
+<div class='container'>
+  <div class='mobile-width-auto-center'>
+    <div class='panel panel-default center add-kid-button'>
+      <div class='panel-heading'>
+        <label class='head-label'>Add a kid</label>
       </div>
-      <div class="row-content">
-        <div class="least-content">kid</div>
-        <h4 class="list-group-item-heading"><%= child.first_name %> <%= child.last_name %></h4>
-
-        <p class="list-group-item-text">This is a good kid</p>
-
-        <a href="javascript:void(0)" class="btn btn-raised btn-default">Edit<div class="ripple-container"></div></a>
+      <div class='panel-body'>
+        <a href='<%= new_user_child_path %>'>
+          <i class='icon icon-plus icon-round-border'></i>
+        </a>
       </div>
     </div>
-    <div class="list-group-separator"></div>
-  <% end %>
+
+    <div class='panel panel-default'>
+      <div class='panel-heading center'>
+        <label class='head-label'>Your Kids</label>
+      </div>
+      <div class='panel-body'>
+        <div class="list-group">
+          <% @children.each do |child| %>
+            <div class="list-group-item">
+              <div class="row-action-primary">
+                <i class="material-icons">folder</i>
+              </div>
+              <div class="row-content">
+                <div class="least-content">kid</div>
+                <h4 class="list-group-item-heading"><%= child.first_name %> <%= child.last_name %></h4>
+
+                <p class="list-grouproup-item-text">This is a good kid</p>
+
+                <div class='row'>
+                  <a href="<%= edit_user_child_path current_user.id, child.id %>" class="btn btn-raised btn-default">Edit Info<div class="ripple-container"></div></a>
+                  <a href="<%= courses_path child.id %>" class="btn btn-raised btn-default">Courses<div class="ripple-container"></div></a>
+                </div>
+              </div>
+            </div>
+            <div class="list-group-separator"></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

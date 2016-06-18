@@ -28,6 +28,7 @@ gem 'fancybox2-rails', '~> 0.2.8'
 gem 'rich', :git => 'https://github.com/kreativgebiet/rich.git'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 
+
 group :development, :test do
   gem 'byebug'
 end

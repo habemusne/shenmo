@@ -1,23 +1,23 @@
-<div>
-  <div>Welcome, <%= concat_name(current_user) %></div>
-  <table class="datatable display responsive no-wrap" width="100%">
-    <thead>
-      <tr>
-        <th>Student Name</th>
-        <th>Course Name</th>
-        <th>School</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% current_user.children.each do |child| %>
-        <% child.courses.each do |course| %>
-          <tr>
-            <td><%= concat_name(child) %></td>
-            <td><%= course.name %></td>
-            <td><%= course.school.name %></td>
-          </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
+<div class='container container-big-padding'>
+  <div class='row'>
+    <div class='col-xs-4 left-panel'>
+      <h3>Welcome, <%= current_user.first_name %></h3>
+    </div>
+    <div class='col-xs-4'>
+      <a href='<%= edit_user_registration_path %>'>
+        <div class='well center well-shallow'>
+          <label class='head-label'>Manage Personal Info</label>
+          <hr>
+          <i class='icon icon-checklist'></i>
+        </div>
+      </a>
+      <a href='<%= user_children_path current_user.id %>'>
+        <div class='well center well-shallow'>
+          <label class='head-label'>Manage My Kids Info</label>
+          <hr>
+          <i class='icon icon-checklist'></i>
+        </div>
+      </a>
+    </div>
+  </div>
 </div>

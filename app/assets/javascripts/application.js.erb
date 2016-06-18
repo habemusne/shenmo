@@ -10,13 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require_tree .
 //= require jquery
 //= require jquery_ujs
 //= require fancybox
 //= require bootstrap-sprockets
 //= require bootstrap-material-design
 //= require ckeditor/init
-//= require_tree .
 
 $('.img-enlargable').fancybox({
   openEffect  : 'elastic',
@@ -27,3 +27,27 @@ $('.img-enlargable').fancybox({
   }
 });
 
+var backgroundImageClasses = [
+  'first-background-image-1',
+  'first-background-image-2',
+  'first-background-image-3',
+  'first-background-image-4',
+  'first-background-image-5',
+];
+var i = 1;
+var b = $('.first-background');
+
+function nextBackground(){
+  // $('.first-background')[0].setAttribute('background-image', backgroundImages[i])
+  
+  b.removeClass();
+  b.addClass('bg__s');
+  b.addClass('first-background');
+  b.addClass(backgroundImageClasses[i]);
+  i = (i + 1) % backgroundImageClasses.length;
+  setTimeout(nextBackground, 3000);
+}
+
+setTimeout(nextBackground, 3000);
+// $('.first-background')[0].setAttribute('background-image', backgroundImages[0])
+b.addClass(backgroundImageClasses[0]);

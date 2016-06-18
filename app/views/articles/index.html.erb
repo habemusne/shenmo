@@ -1,4 +1,19 @@
-<% @articles.each do |article| %>
-  <div><%= article.title %></div>
-  <%= article.body.html_safe %>
-<% end %>
+<div class='container'>
+  <h1>Recent News</h1>
+  <hr>
+  <div class='list-group'>
+    <% @articles.each do |article| %>
+      <a class='list-group-item' href='<%= article_path article.id %>'>
+        <div class='row-action-primary'>
+          <img src='<%= article.caption_url %>' class='img-responsive' />
+        </div>
+        <div class='row-content'>
+          <div class='least-content'><%= article.publish_date.strftime('%b %d, %Y') %></div>
+          <h4 class='list-group=item-heading'><%= article.title %></h4>
+          <p class=''><%= article.lead %></p>
+        </div>
+      </a>
+      <div class='list-group-separator'></div>
+    <% end %>
+  </div>
+</div>

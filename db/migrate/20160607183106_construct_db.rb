@@ -36,6 +36,8 @@ class ConstructDb < ActiveRecord::Migration
 
     create_table :courses do |t|
       t.string :name, null: false
+      t.text :desc_short
+      t.text :desc_long
       t.date :start_date
       t.date :end_date
       t.references :semester, index: true, foreign_key: true
@@ -52,14 +54,18 @@ class ConstructDb < ActiveRecord::Migration
     end
 
     create_table :enrollments do |t|
-      t.boolean :pass
+      t.boolean :pass, default: false
+      t.boolean :paid, default: false
       t.references :child, foreign_key: true
       t.references :course, foreign_key: true
     end
-    
+
     create_table :articles do |t|
       t.string :title
+      t.string :lead
       t.text :body
+      t.date :publish_date
+      t.string :caption_url
       t.timestamp null: false
     end
 

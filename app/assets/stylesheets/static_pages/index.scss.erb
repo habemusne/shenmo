@@ -13,10 +13,6 @@
 
 }
 
-.second-section{
-  text-align: center;
-}
-
 .second-section-body-container{
   div{
     i{
@@ -39,15 +35,43 @@
   
 }
 
-.children-background{
+.first-background{
   min-height: 600px;
-  background-image: linear-gradient(
-      $primaryColorHue1Transparent1,
-      $primaryColorHue1Transparent2
-    ), url(https://s3-us-west-2.amazonaws.com/shenmo/background/children-1024.png);
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 0.9;
+  margin-top: -20px;
+}
+
+.first-background-image-1{
+  background-image: linear-gradient(
+      $primaryColorHue1Transparent1,
+      $primaryColorHue1Transparent2
+    ), url(<%= asset_path 'child3.jpg' %>);
+}
+.first-background-image-2{
+  background-image: linear-gradient(
+      $primaryColorHue1Transparent1,
+      $primaryColorHue1Transparent2
+    ), url(<%= asset_path 'writing1.jpg' %>);
+}
+.first-background-image-3{
+  background-image: linear-gradient(
+      $primaryColorHue1Transparent1,
+      $primaryColorHue1Transparent2
+    ), url(<%= asset_path 'abacus1.jpg' %>);
+}
+.first-background-image-4{
+  background-image: linear-gradient(
+      $primaryColorHue1Transparent1,
+      $primaryColorHue1Transparent2
+    ), url(<%= asset_path 'child1.jpg' %>);
+}
+.first-background-image-5{
+  background-image: linear-gradient(
+      $primaryColorHue1Transparent1,
+      $primaryColorHue1Transparent2
+    ), url(<%= asset_path 'child4.jpg' %>);
 }
 
 .another-background{
@@ -55,11 +79,10 @@
   background-image: linear-gradient(
       $primaryColorHue1Transparent1,
       $primaryColorHue1Transparent2
-    ), url(http://www.apa.org/Images/children-title-image_tcm7-187853.jpg);
+    ), url(https://s3-us-west-2.amazonaws.com/shenmo/articles/李绵军、罗一鸣在美国圣地亚哥州立大学演讲/61.pic.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 0.9;
-
 }
 
 

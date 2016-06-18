@@ -1,14 +1,33 @@
-<div class='container'>
-  <ul class="collapsible" data-collapsible="accordion">
-    <% @courses.each do |course| %>
-      <li>
-        <div class="collapsible-header rw"><i class="material-icons">filter_drama</i>
-          <%= course.name %>
+
+
+
+<ul class="nav nav-tabs" style="margin-bottom: 15px;">
+  <li class="">
+    <a href="#all-courses" data-toggle="tab" aria-expanded="false">All Courses<div class="ripple-container"></div></a>
+  </li>
+  <li class="">
+    <a href="#enrolled-courses" data-toggle="tab" aria-expanded="true">Enrolled Courses<div class="ripple-container"></div></a>
+  </li>
+  <li class="">
+    <a href="#archived-courses" data-toggle="tab" aria-expanded="true">Archived Courses<div class="ripple-container"></div></a>
+  </li>
+</ul>
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade" id="all-courses">
+    <div class='list-group'>
+      <% @all_courses.each do |course| %>
+        <div class='list-group-item'>
+          <%= render 'courses/course_card',
+              course: course
+          %>
         </div>
-        <div class="collapsible-body">
-          <p>Course description: ...</p>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+      <% end %>
+    </div>
+  </div>
+  <div class="tab-pane fade active in" id="enrolled-courses">
+    
+  </div>
+  <div class="tab-pane fade active in" id="archived-courses">
+    
+  </div>
 </div>

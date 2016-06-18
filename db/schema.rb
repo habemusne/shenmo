@@ -14,8 +14,11 @@
 ActiveRecord::Schema.define(version: 20160615224608) do
 
   create_table "articles", force: :cascade do |t|
-    t.string "title", limit: 255
-    t.text   "body",  limit: 65535
+    t.string "title",        limit: 255
+    t.string "lead",         limit: 255
+    t.text   "body",         limit: 65535
+    t.date   "publish_date"
+    t.string "caption_url",  limit: 255
   end
 
   create_table "children", force: :cascade do |t|
@@ -46,7 +49,9 @@ ActiveRecord::Schema.define(version: 20160615224608) do
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "courses", force: :cascade do |t|
-    t.string  "name",        limit: 255, null: false
+    t.string  "name",        limit: 255,   null: false
+    t.text    "desc_short",  limit: 65535
+    t.text    "desc_long",   limit: 65535
     t.date    "start_date"
     t.date    "end_date"
     t.integer "semester_id", limit: 4
@@ -57,7 +62,8 @@ ActiveRecord::Schema.define(version: 20160615224608) do
   add_index "courses", ["semester_id"], name: "index_courses_on_semester_id", using: :btree
 
   create_table "enrollments", force: :cascade do |t|
-    t.boolean "pass"
+    t.boolean "paid", default: false
+    t.boolean "pass", default: false
     t.integer "child_id",  limit: 4
     t.integer "course_id", limit: 4
   end

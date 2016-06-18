@@ -1,22 +1,10 @@
 <div class='container'>
-
   <div class="row">
-    <div class="col-md-6">
-      <div class="well bs-component">
+    <div class="mobile-width-auto-center">
+      <div class="well">
         <form class="form-horizontal">
           <fieldset>
-            <legend>Update a kid's info</legend>
-            <div class="form-group">
-              <label for="select_kid" class="col-md-2 control-label">Select a kid</label>
-
-              <div class="col-md-10">
-                <select id="select_kid" class="form-control">
-                  <option>Brownie Johnson</option>
-                  <option>Johnny Johnson</option>
-                  <option>Stephanie Johnson</option>
-                </select>
-              </div>
-            </div>
+            <legend><%= concat_name @child %></legend>
             <div class="form-group is-empty">
               <label for="first_name" class="col-md-2 control-label">First Name</label>
               <div class="col-md-10">
